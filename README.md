@@ -92,7 +92,7 @@ git config --global core.excludesfile ~/dotfiles/.gitignore-system
 
 ![image](https://user-images.githubusercontent.com/46035482/111584555-3d0e3300-877b-11eb-9fb1-83727904cd5e.png)
 
-> This is what my shell prompt looks like. Nothin to crazy, but I'm into it. Gives all the info I need to know right inline.
+> This is what my shell prompt looks like. Nothin too crazy, but I'm into it. Gives all the info I need to know right inline.
 
 ### Starship Prompt 🚀
 
