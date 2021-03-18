@@ -12,6 +12,7 @@ tasks:
       - task: setup:starship
       - task: setup:gitignore
       - task: setup:vim
+      - task: setup:tldr
 
   setup:starship:
     desc: "Install and setup Starship prompt"
@@ -34,3 +35,17 @@ tasks:
       - brew tap homebrew/cask-fonts
       - brew install --cask font-blex-mono-nerd-font
       - brew install --cask font-hack-nerd-font
+
+  setup:tldr:
+    desc: "Setup tldr shell client"
+    cmds:
+      - mkdir -p ~/bin
+      - curl -o ~/bin/tldr https://raw.githubusercontent.com/raylee/tldr/master/tldr
+      - chmod +x ~/bin/tldr
+    status:
+      - test -f ~/bin/tldr
+
+  brew:
+    desc: "Install all brew packages"
+    cmds:
+      - brew install $(tr '\n' ' ' < brewlist.txt)

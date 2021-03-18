@@ -13,13 +13,15 @@ git clone https://github.com/brittonhayes/dotfiles.git ~/dotfiles
 
 ```shell
 ❯ task -l
-task: Available tasks:
 
-- setup: Run all cross-platform setup commands
-- setup:fonts: Install and setup Nerdfonts (OSX)
-- setup:gitignore: Set system-wide gitignore
-- setup:starship: Install and setup Starship prompt
-- setup:vim: Install and setup spf13-vim
+# task: Available tasks for this project:
+* brew: 		    Install all brew packages
+* setup: 		    Run all cross-platform setup commands
+* setup:fonts: 		Install and setup Nerdfonts (OSX)
+* setup:gitignore: 	Set system-wide gitignore
+* setup:starship: 	Install and setup Starship prompt
+* setup:tldr: 		Setup tldr shell client
+* setup:vim: 		Install and setup spf13-vim
 ```
 
 ## Tools, Packages, and Configurations 🛠️

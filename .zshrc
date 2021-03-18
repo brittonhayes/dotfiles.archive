@@ -5,8 +5,8 @@ plugins=(
 	git
 	golang
 	cargo
-    docker
-    zsh-autosuggestions
+  docker
+  zsh-autosuggestions
 	zsh-syntax-highlighting
 )
 
@@ -18,13 +18,20 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 export EDITOR="micro"
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin:~/bin"
+
+## tldr
+export TLDR_HEADER='magenta bold underline'
+export TLDR_QUOTE='italic'
+export TLDR_DESCRIPTION='cyan'
+export TLDR_CODE='red'
+export TLDR_PARAM='blue'
 
 # EDITOR
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='micro'
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='micro'
  else
-   export EDITOR='micro'
+  export EDITOR='micro'
 fi
 
 # ALIASES
@@ -40,6 +47,9 @@ alias kubectl="k"
 function gi() {
     curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;
 }
+
+# SHELL COMPLETION
+complete -W "$(tldr 2>/dev/null --list)" tldr
 
 # PROMPT
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

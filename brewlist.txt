@@ -4,10 +4,10 @@ calc
 docker
 ggp1/tap/kure
 gh
-go-task/tap/go-task
 golangci-lint
 gomatic/renderizer/renderizer
 goreleaser
+go-task/tap/go-task
 hugo
 jq
 kubectl
