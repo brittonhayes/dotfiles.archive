@@ -1,0 +1,36 @@
+# https://taskfile.dev
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - git pull
+
+  setup:
+    desc: "Run all cross-platform setup commands"
+    cmds:
+      - task: setup:starship
+      - task: setup:gitignore
+      - task: setup:vim
+
+  setup:starship:
+    desc: "Install and setup Starship prompt"
+    cmds:
+      - curl -fsSL https://starship.rs/install.sh | bash
+
+  setup:gitignore:
+    desc: "Set system-wide gitignore"
+    cmds:
+      - git config --global core.excludesfile .gitignore-system
+
+  setup:vim:
+    desc: "Install and setup spf13-vim"
+    cmds:
+      - sh <(curl https://j.mp/spf13-vim3 -L)
+
+  setup:fonts:
+    desc: "Install and setup Nerdfonts (OSX)"
+    cmds:
+      - brew tap homebrew/cask-fonts
+      - brew install --cask font-blex-mono-nerd-font
+      - brew install --cask font-hack-nerd-font
