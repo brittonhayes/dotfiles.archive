@@ -2,6 +2,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/intellij,go,linux,osx
 # Edit at https://www.toptal.com/developers/gitignore?templates=intellij,go,linux,osx
 
+.idea
+
 ### Go ###
 # Binaries for programs and plugins
 *.exe
