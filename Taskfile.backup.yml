@@ -1,0 +1,27 @@
+# https://taskfile.dev
+version: "3"
+
+tasks:
+  vimrc:
+    cmds:
+      - mv ~/.vimrc.local ~/.vimrc.local.bak
+    status:
+      - test ! -f ~/.vimrc.local
+
+  starship:
+    cmds:
+      - mv ~/.config/starship.toml ~/.config/starship.toml.bak
+    status:
+      - test ! -f ~/.config/starship.toml
+
+  zsh:
+    cmds:
+      - mv ~/.zshrc ~/.zshrc.bak
+    status:
+      - test ! -f ~/.zshrc
+
+  alacritty:
+    cmds:
+      - mv ~/.alacritty.yml ~/.alacritty.yml.bak
+    status:
+      - test ! -f ~/.alacritty.yml

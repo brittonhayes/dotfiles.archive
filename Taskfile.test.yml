@@ -1,0 +1,49 @@
+# https://taskfile.dev
+version: "3"
+
+silent: true
+
+tasks:
+  stow:
+    cmds:
+      - echo "Stow is setup correctly "
+    preconditions:
+      - sh: "test -f /usr/local/bin/stow"
+        msg: "Please install stow"
+
+  brew:
+    cmds:
+      - echo "Brew is setup correctly "
+    preconditions:
+      - sh: "test -f /usr/local/bin/brew"
+        msg: "Please install brew"
+
+  go:
+    cmds:
+      - echo "Golang is setup correctly "
+    preconditions:
+      - sh: "go version"
+        msg: "Please install golang"
+
+  git:
+    cmds:
+      - echo "git is setup correctly "
+    preconditions:
+      - sh: "git version"
+        msg: "Please install git"
+
+  vimrc:
+    cmds:
+      - echo "vimrc is setup correctly "
+    preconditions:
+      - sh: "which vim"
+        msg: "Please install vim on this device"
+      - sh: "test ! -d ~/.vim_runtime"
+        msg: "Please remove the ~/.vim_runtime directory"
+
+  zsh:
+    cmds:
+      - echo "zsh is setup correctly "
+    preconditions:
+      - sh: "which zsh"
+        msg: "Please install zsh on this device"

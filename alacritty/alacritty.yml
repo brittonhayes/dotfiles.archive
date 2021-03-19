@@ -9,7 +9,7 @@ scrolling:
 font:
   normal:
     family: "BlexMono Nerd Font"
-    style: Regular
+    style: Normal
   bold:
     family: "BlexMono Nerd Font"
     style: Bold
@@ -22,8 +22,8 @@ font:
   size: 13.0
 
 # Linux Shell
-shell:
-  program: /home/linuxbrew/.linuxbrew/bin/zsh
+# shell:
+#   program: /home/linuxbrew/.linuxbrew/bin/zsh
 
 # OSX Shell
 #shell:
