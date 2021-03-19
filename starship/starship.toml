@@ -12,6 +12,11 @@ format = "\\([$path]($style)[$read_only]($read_only_style)\\) "
 format = "[$symbol$branch]($style) "
 symbol = " "
 
+[gcloud]
+symbol = " "
+disabled = true
+
 [aws]
+symbol = " "
 disabled = true
 style = "bold white"

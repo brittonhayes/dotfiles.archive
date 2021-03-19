@@ -1,53 +1,111 @@
 # https://taskfile.dev
 version: "3"
 
-tasks:
-  default:
-    cmds:
-      - git pull
+includes:
+  test: ./Taskfile.test.yml
+  backup: ./Taskfile.backup.yml
 
-  setup:
-    desc: "Run all cross-platform setup commands"
+silent: false
+
+tasks:
+  all:
+    desc: "Run all setup commands"
     cmds:
       - task: setup:starship
       - task: setup:gitignore
       - task: setup:vim
       - task: setup:tldr
+      - task: setup:alacritty
+      - task: setup:git
+      - task: setup:zsh
+      - task: setup:fonts
 
-  setup:starship:
-    desc: "Install and setup Starship prompt"
+  pkg:golang:
+    desc: "Install all Go packages"
+    deps: [test:go]
     cmds:
-      - curl -fsSL https://starship.rs/install.sh | bash
-      - cp starship.toml ~/.config/starship.toml
+      - go get github.com/cosmtrek/air
+      - go get github.com/spf13/cobra/cobra
+      - go get github.com/dave/courtney
+      - go get github.com/go-delve/delve/cmd/dlv
+      - go get github.com/mailru/easyjson
+      - go get goa.design/goa/v3/...@v3
+      - go get golang.org/x/tools/cmd/goimports
+      - go get github.com/segmentio/golines
+      - go get github.com/princjef/gomarkdoc/cmd/gomarkdoc
+      - go get github.com/magefile/mage
+      - go get github.com/client9/misspell/cmd/misspell
+      - go get github.com/alphasoc/flightsim/...
+      - echo "All Go packages installed!"
 
-  setup:gitignore:
-    desc: "Set system-wide gitignore"
-    cmds:
-      - git config --global core.excludesfile .gitignore-system
-
-  setup:vim:
-    desc: "Install and setup spf13-vim"
-    cmds:
-      - sh <(curl https://j.mp/spf13-vim3 -L)
-      - cp .vimrc.local ~/.vimrc.local
-
-  setup:fonts:
-    desc: "Install and setup Nerdfonts (OSX)"
-    cmds:
-      - brew tap homebrew/cask-fonts
-      - brew install --cask font-blex-mono-nerd-font
-      - brew install --cask font-hack-nerd-font
-
-  setup:tldr:
-    desc: "Setup tldr shell client"
-    cmds:
-      - mkdir -p ~/bin
-      - curl -o ~/bin/tldr https://raw.githubusercontent.com/raylee/tldr/master/tldr
-      - chmod +x ~/bin/tldr
-    status:
-      - test -f ~/bin/tldr
-
-  brew:
-    desc: "Install all brew packages"
+  pkg:brew:
+    desc: "Install all Brew packages"
+    deps: [test:brew]
     cmds:
       - brew install $(tr '\n' ' ' < brewlist.txt)
+      - echo "All Brew packages installed!"
+
+  setup:alacritty:
+    desc: "Setup Alacritty configuration"
+    deps: [test:stow]
+    cmds:
+      - task: backup:alacritty
+      - stow alacritty
+      - alacritty --live-config-reload --config-file ~/.alacritty.yml
+      - echo "Alacritty setup!"
+
+  setup:tldr:
+    desc: "Setup tldr"
+    deps: [test:brew]
+    cmds:
+      - brew install tldr
+      - tldr -u
+      - echo "TLDR setup!"
+
+  setup:starship:
+    deps: [test:stow, test:brew]
+    desc: "Setup Starship prompt"
+    cmds:
+      - brew install starship
+      - task: backup:starship
+      - stow --target=$HOME/.config/ starship
+      - echo "Starship setup!"
+
+  setup:git:
+    desc: "Setup global gitignore"
+    deps: [test:git]
+    cmds:
+      - git config --global core.excludesfile .gitignore-system
+      - echo "Global gitignore setup!"
+
+  setup:vim:
+    desc: "Setup vimrc"
+    deps: [test:stow, test:vimrc]
+    cmds:
+      - git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+      - sh ~/.vim_runtime/install_awesome_vimrc.sh
+      - task: backup:vimrc
+      - stow vim
+      - echo "VIM setup done!"
+
+  setup:zsh:
+    desc: "Setup zsh"
+    deps: [test:zsh, test:stow]
+    cmds:
+      - sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      - task: backup:zsh
+      - stow zsh
+      - echo "ZSH setup done!"
+    preconditions:
+      - sh: test ! -d ~/.oh-my-zsh
+        msg: "Please remove ~/.oh-my-zsh"
+
+  setup:fonts:
+    desc: "Setup Nerdfonts"
+    deps: [test:brew]
+    cmds:
+      - brew tap homebrew/cask-fonts
+      - brew install font-blex-mono-nerd-font
+      - brew install font-hack-nerd-font
+      - brew install font-jetbrains-mono-nerd-font
+      - echo "Fonts setup done!"

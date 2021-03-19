@@ -1,22 +1,24 @@
 # Path to my oh-my-zsh installation.
 export ZSH="/home/britton/.oh-my-zsh"
-ZSH_THEME="ubunly"
+
+ZSH_THEME="robbyrussel"
 plugins=(
-  z
+    z
 	git
 	golang
-	cargo
-  docker
-  zsh-autosuggestions
+    zsh-autosuggestions
+    zsh-completions
 	zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
+fpath=(~/.zsh/completions/ $fpath)
+
 ## LINUX SPECIFIC
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # USER CONFIG
-export EDITOR="micro"
+export EDITOR="vim"
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin:~/bin"
@@ -30,9 +32,9 @@ export TLDR_PARAM='blue'
 
 # EDITOR
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='micro'
+  export EDITOR='vim'
  else
-  export EDITOR='micro'
+  export EDITOR='vim'
 fi
 
 # ALIASES
@@ -54,4 +56,5 @@ complete -W "$(tldr 2>/dev/null --list)" tldr
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # PROMPT
-# eval "$(starship init zsh)"
+autoload -U promptinit; promptinit
+eval "$(starship init zsh)"

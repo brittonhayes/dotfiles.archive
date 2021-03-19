@@ -2,9 +2,22 @@
 
 > My personal configurations and recipes that I just can't get enough of.
 
+## Requirements
+
+```shell
+# Install Task to run setup cmds
+brew install go-task/tap/go-task
+
+# Install stow to symlink dotfiles
+brew install stow
+
+# Install zsh through brew
+brew install zsh
+```
+
 ## Usage
 
-If you have [Task](https://taskfile.dev) installed, you can use any of the following commands to automatically setup my dotfiles.
+If you have [Task](https://taskfile.dev) installed, you can use any of the following commands to automatically setup my dotfiles. If you already have any of these tools configured, don't worry this won't overwrite your configs. Any found configs will be moved into a `.bak` copy of themselves.
 
 ```shell
 # Clone the repository into your home directory
@@ -15,13 +28,15 @@ git clone https://github.com/brittonhayes/dotfiles.git ~/dotfiles
 ❯ task -l
 
 # task: Available tasks for this project:
-* brew: 		    Install all brew packages
-* setup: 		    Run all cross-platform setup commands
-* setup:fonts: 		Install and setup Nerdfonts (OSX)
-* setup:gitignore: 	Set system-wide gitignore
-* setup:starship: 	Install and setup Starship prompt
-* setup:tldr: 		Setup tldr shell client
-* setup:vim: 		Install and setup spf13-vim
+* all:                  Run all setup commands
+* pkg:brew:             Install all brew packages
+* pkg:golang:           Install golang packages
+* setup:fonts:          Install and setup Nerdfonts
+* setup:git:            Setup global gitignore
+* setup:starship:       Install and setup Starship prompt
+* setup:tldr:           Install and setup tldr
+* setup:vim:            Install and setup vimrc
+* setup:zsh:            Install and setup zsh
 ```
 
 ## Tools, Packages, and Configurations 🛠️
@@ -30,17 +45,33 @@ git clone https://github.com/brittonhayes/dotfiles.git ~/dotfiles
 
 All of my favorite brew taps
 
-[View brewlist.txt](brewlist.txt)
+```shell
+# Install brew packages
+task pkg:brew
+```
+
+[My brew packages](brew/brewlist.txt)
 
 ### ZSH 🐚
 
 All of my favorite functions, plugins, and aliases for ZSH.
+This also installs `oh-my-zsh` as a conveniance if you don't have it.
 
-[View .zshrc](.zshrc)
+```shell
+# Setup ZSH config with oh-my-zsh
+task setup:zsh
+```
+
+[View .zshrc](zsh/.zshrc)
 
 ### Go 🐹
 
 A list of a few of my favorite Go binaries
+
+```shell
+# Install the Go packages
+task pkg:golang
+```
 
 ```text
 github.com/cosmtrek/air
@@ -59,13 +90,15 @@ github.com/alphasoc/flightsim/...
 
 ### Vim Config
 
-My go-to VIM setup is basically [spf13-vim](https://github.com/spf13/spf13-vim) right out of the box. I tweak it here
+My go-to VIM setup is basically [amix/vimrc](https://github.com/amix/vimrc) right out of the box. I tweak it here
 and there, but he did a killer job, and I pretty much stick with his setup.
 
 ```shell
-# Install spf13-vim for a bash
-sh <(curl https://j.mp/spf13-vim3 -L)
+# Install vim setup
+task setup:vim
 ```
+
+[My VIM customizations](vim/.vimrc.local)
 
 ### Alacritty
 
@@ -73,22 +106,24 @@ Alacritty is my terminal emulator of choice. It's wicked fast and lets me tinker
 my heart's content to make a sweet lil' terminal.
 
 ```shell
-~/.config/alacritty/alacritty.yml
+# Install my alacritty config
+task setup:alacritty
 ```
 
 [Alacritty](https://github.com/alacritty/alacritty)
 
-[My Alacritty Config](alacritty.yml)
+[My Alacritty Config](alacritty/alacritty.yml)
 
 ### Gitignore
 
 I have a system-wide gitignore for pesky directories and files that I don't ever want
 committed to git repositories.
 
-[My .gitignore](.gitignore-system)
+[My .gitignore](git/.gitignore-system)
 
 ```shell
-git config --global core.excludesfile ~/dotfiles/.gitignore-system
+# Setup my global gitignore
+task setup:git
 ```
 
 ## Aesthetic Stuff 👓
@@ -101,6 +136,11 @@ git config --global core.excludesfile ~/dotfiles/.gitignore-system
 
 I use the starship prompt. It's pretty great. I recommend it.
 
+```shell
+# Install and setup my custom starship prompt
+task setup:starship
+```
+
 [How to Install Starship](https://starship.rs/guide/#%F0%9F%9A%80-installation)
 
 ### Fonts 📜
@@ -108,7 +148,12 @@ I use the starship prompt. It's pretty great. I recommend it.
 I use the Nerd fonts library to pick and
 choose my fonts for IDE and terminal.
 
-The usual go-to is IBM Plex Mono aka `BlexMono Nerd Font`
+The usual go to is IBM Plex Mono aka `BlexMono Nerd Font`
+
+```shell
+# Install and setup fonts
+task setup:fonts
+```
 
 [BlexMono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/IBMPlexMono)
 
