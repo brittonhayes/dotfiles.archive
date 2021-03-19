@@ -1,7 +1,8 @@
 # Path to my oh-my-zsh installation.
 export ZSH="/home/britton/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="ubunly"
 plugins=(
+  z
 	git
 	golang
 	cargo
@@ -50,7 +51,7 @@ function gi() {
 
 # SHELL COMPLETION
 complete -W "$(tldr 2>/dev/null --list)" tldr
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # PROMPT
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"

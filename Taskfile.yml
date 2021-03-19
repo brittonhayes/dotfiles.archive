@@ -28,6 +28,7 @@ tasks:
     desc: "Install and setup spf13-vim"
     cmds:
       - sh <(curl https://j.mp/spf13-vim3 -L)
+      - cp .vimrc.local ~/.vimrc.local
 
   setup:fonts:
     desc: "Install and setup Nerdfonts (OSX)"

@@ -1,0 +1,24 @@
+format = "[┌─$all](dimmed white) "
+
+# 'on [$symbol$profile(\($region\))]($style) '
+
+[character]
+format = "[└─](dimmed white)$symbol"
+success_symbol = "[\\$](bold blue)"
+
+# [username]
+# style_user = "bold blue"
+# style_root = "bold red"
+# show_always = true
+# format = "\\([$user]($style)\\)-"
+
+[directory]
+style = "bold blue"
+format = "\\([$path]($style)[$read_only]($read_only_style)\\) "
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+symbol = " "
+
+[aws]
+disabled = true
