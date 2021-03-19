@@ -54,6 +54,7 @@ github.com/segmentio/golines
 github.com/princjef/gomarkdoc/cmd/gomarkdoc
 github.com/magefile/mage
 github.com/client9/misspell/cmd/misspell
+github.com/alphasoc/flightsim/...
 ```
 
 ### Vim Config
