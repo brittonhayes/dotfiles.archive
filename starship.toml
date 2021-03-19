@@ -13,4 +13,5 @@ format = "[$symbol$branch]($style) "
 symbol = " "
 
 [aws]
+disabled = true
 style = "bold white"
