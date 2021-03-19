@@ -1,16 +1,8 @@
 format = "[┌─$all](dimmed white) "
 
-# 'on [$symbol$profile(\($region\))]($style) '
-
 [character]
 format = "[└─](dimmed white)$symbol"
 success_symbol = "[\\$](bold blue)"
-
-# [username]
-# style_user = "bold blue"
-# style_root = "bold red"
-# show_always = true
-# format = "\\([$user]($style)\\)-"
 
 [directory]
 style = "bold blue"
@@ -21,4 +13,4 @@ format = "[$symbol$branch]($style) "
 symbol = " "
 
 [aws]
-disabled = true
+style = "bold white"
