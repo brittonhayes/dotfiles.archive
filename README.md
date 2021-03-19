@@ -92,7 +92,7 @@ git config --global core.excludesfile ~/dotfiles/.gitignore-system
 
 ## Aesthetic Stuff 👓
 
-![image](https://user-images.githubusercontent.com/46035482/111584555-3d0e3300-877b-11eb-9fb1-83727904cd5e.png)
+![image](https://user-images.githubusercontent.com/46035482/111725294-0cce9f00-8824-11eb-8f0b-f0aac695b499.png)
 
 > This is what my shell prompt looks like. Nothin too crazy, but I'm into it. Gives all the info I need to know right inline.
 
