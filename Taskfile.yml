@@ -5,7 +5,7 @@ includes:
   test: ./Taskfile.test.yml
   backup: ./Taskfile.backup.yml
 
-silent: false
+silent: true
 
 tasks:
   all:
@@ -47,11 +47,11 @@ tasks:
 
   setup:alacritty:
     desc: "Setup Alacritty configuration"
-    deps: [test:stow]
+    deps: [test:stow, test:brew]
     cmds:
+      - brew install alacritty
       - task: backup:alacritty
       - stow alacritty
-      - alacritty --live-config-reload --config-file ~/.alacritty.yml
       - echo "Alacritty setup!"
 
   setup:tldr:
