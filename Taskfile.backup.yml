@@ -5,12 +5,14 @@ tasks:
   vimrc:
     cmds:
       - mv ~/.vimrc.local ~/.vimrc.local.bak
+      - echo "Created vimrc backup in ~/.vimrc.local.bak"
     status:
       - test ! -f ~/.vimrc.local
 
   starship:
     cmds:
       - mv ~/.config/starship.toml ~/.config/starship.toml.bak
+      - echo "Created starship backup in ~/.config/starship.toml.bak"
     status:
       - test ! -f ~/.config/starship.toml
 
@@ -19,6 +21,15 @@ tasks:
       - mv ~/.zshrc ~/.zshrc.bak
     status:
       - test ! -f ~/.zshrc
+  
+  pet:
+    cmds:
+      - mv ~/.config/pet/config.toml ~/.config/pet/config.toml.bak
+      - mv ~/.config/pet/snippet.toml ~/.config/pet/snippet.toml.bak
+      - echo "Created backup of pet config and snippets in ~/.config/pet/*.bak"
+    status:
+      - test ! -f ~/.config/pet/config.toml
+      - test ! -f ~/.config/pet/snippet.toml
 
   alacritty:
     cmds:

@@ -23,13 +23,6 @@ export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin:~/bin"
 
-## tldr
-export TLDR_HEADER='magenta bold underline'
-export TLDR_QUOTE='italic'
-export TLDR_DESCRIPTION='cyan'
-export TLDR_CODE='red'
-export TLDR_PARAM='blue'
-
 # EDITOR
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -39,12 +32,10 @@ fi
 
 # ALIASES
 alias vi="vim"
-alias zerotier="sudo zerotier-one.zerotier-cli"
 alias pip="pip3"
 alias python="python3"
 alias vpn="protonvpn-cli"
 alias kubectl="k"
-
 
 # FUNCTIONS
 function gi() {

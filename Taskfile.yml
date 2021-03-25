@@ -8,17 +8,25 @@ includes:
 silent: true
 
 tasks:
+  default:
+    cmds:
+      - task -l
+
   all:
     desc: "Run all setup commands"
     cmds:
-      - task: setup:starship
-      - task: setup:gitignore
-      - task: setup:vim
-      - task: setup:tldr
-      - task: setup:alacritty
-      - task: setup:git
+      - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      - task: pkg:brew
       - task: setup:zsh
+      - task: setup:git
+      - task: setup:starship
       - task: setup:fonts
+      - task: setup:vim
+      - task: setup:alacritty
+      - task: setup:tldr
+      - echo "Terminal setup complete!"
+      - sleep 3
+      - alacritty
 
   pkg:golang:
     desc: "Install all Go packages"
@@ -36,13 +44,14 @@ tasks:
       - go get github.com/magefile/mage
       - go get github.com/client9/misspell/cmd/misspell
       - go get github.com/alphasoc/flightsim/...
+      - github.com/go-jira/jira/cmd/jira
       - echo "All Go packages installed!"
 
   pkg:brew:
     desc: "Install all Brew packages"
     deps: [test:brew]
     cmds:
-      - brew install $(tr '\n' ' ' < brewlist.txt)
+      - xargs brew install < brew/brewlist.txt
       - echo "All Brew packages installed!"
 
   setup:alacritty:
@@ -61,6 +70,15 @@ tasks:
       - brew install tldr
       - tldr -u
       - echo "TLDR setup!"
+  
+  setup:pet:
+    desc: "Setup Pet CLI snippets manager"
+    deps: [test:brew]
+    cmds:
+      - brew install knqyf263/pet/pet
+      - task: backup:pet
+      - stow --target=$HOME/.config/pet/ pet
+      - echo "Pet setup!"
 
   setup:starship:
     deps: [test:stow, test:brew]

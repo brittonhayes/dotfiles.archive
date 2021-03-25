@@ -1,0 +1,5 @@
+[[snippets]]
+  description = "says hello"
+  command = "echo \"howdy\""
+  tag = ["greeting", "welcome"]
+  output = ""

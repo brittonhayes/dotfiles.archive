@@ -7,12 +7,6 @@
 ```shell
 # Install Task to run setup cmds
 brew install go-task/tap/go-task
-
-# Install stow to symlink dotfiles
-brew install stow
-
-# Install zsh through brew
-brew install zsh
 ```
 
 ## Usage
@@ -24,19 +18,23 @@ If you have [Task](https://taskfile.dev) installed, you can use any of the follo
 git clone https://github.com/brittonhayes/dotfiles.git ~/dotfiles
 ```
 
+### List Available Tasks
+
 ```shell
-❯ task -l
+❯ task
 
 # task: Available tasks for this project:
 * all:                  Run all setup commands
-* pkg:brew:             Install all brew packages
-* pkg:golang:           Install golang packages
-* setup:fonts:          Install and setup Nerdfonts
+* pkg:brew:             Install all Brew packages
+* pkg:golang:           Install all Go packages
+* setup:alacritty:      Setup Alacritty configuration
+* setup:fonts:          Setup Nerdfonts
 * setup:git:            Setup global gitignore
-* setup:starship:       Install and setup Starship prompt
-* setup:tldr:           Install and setup tldr
-* setup:vim:            Install and setup vimrc
-* setup:zsh:            Install and setup zsh
+* setup:pet:            Setup Pet CLI snippets manager
+* setup:starship:       Setup Starship prompt
+* setup:tldr:           Setup tldr
+* setup:vim:            Setup vimrc
+* setup:zsh:            Setup zsh
 ```
 
 ## Tools, Packages, and Configurations 🛠️
