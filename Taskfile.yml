@@ -116,6 +116,15 @@ tasks:
       - sh: test ! -d ~/.oh-my-zsh
         msg: "Please remove ~/.oh-my-zsh"
 
+  setup:fish:
+    desc: "Setup fish"
+    deps: [test:fish, test:stow]
+    cmds:
+      - fish ./fish/setup.fish 
+      - task: backup:fish
+      - stow --target=$HOME/.config/fish/ fish
+      - echo "fish setup done!"
+
   setup:fonts:
     desc: "Setup Nerdfonts"
     deps: [test:brew]

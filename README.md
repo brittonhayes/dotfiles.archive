@@ -35,6 +35,7 @@ git clone https://github.com/brittonhayes/dotfiles.git ~/dotfiles
 * setup:tldr:           Setup tldr
 * setup:vim:            Setup vimrc
 * setup:zsh:            Setup zsh
+* setup:fish:           Setup fish
 ```
 
 ## Tools, Packages, and Configurations 🛠️
@@ -61,6 +62,19 @@ task setup:zsh
 ```
 
 [View .zshrc](zsh/.zshrc)
+
+### Fish 🐚
+
+If you prefer fish, I've got a setup for that too.
+
+```shell
+# Setup fish config
+task setup:fish
+```
+
+> To set fish as your default shell, use:
+> `echo /usr/local/bin/fish | sudo tee -a /etc/shells`
+> `chsh -s /usr/local/bin/fish`
 
 ### Go 🐹
 
@@ -96,7 +110,8 @@ and there, but he did a killer job, and I pretty much stick with his setup.
 task setup:vim
 ```
 
-[My VIM customizations](vim/.vimrc.local)
+[My Vimrc](vim/.vimrc)
+[My Vim customizations](vim/.my_configs.vim)
 
 ### Alacritty
 

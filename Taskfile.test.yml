@@ -47,3 +47,10 @@ tasks:
     preconditions:
       - sh: "which zsh"
         msg: "Please install zsh on this device"
+
+  fish:
+    cmds:
+      - echo "fish is setup correctly "
+    preconditions:
+      - sh: "which fish"
+        msg: "Please install fish on this device"

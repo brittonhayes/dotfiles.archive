@@ -22,6 +22,14 @@ tasks:
     status:
       - test ! -f ~/.zshrc
   
+  fish:
+    cmds:
+      - mv ~/.config/fish/config.fish ~/.config/fish/config.fish.bak
+      - mv ~/.config/fish/fish_plugins ~/.config/fish/fish_plugins.bak 
+    status:
+      - test ! -f ~/.config/fish/config.fish
+      - test ! -f ~/.config/fish/fish_plugins
+
   pet:
     cmds:
       - mv ~/.config/pet/config.toml ~/.config/pet/config.toml.bak

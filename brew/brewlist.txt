@@ -26,3 +26,4 @@ tldr
 vim
 yarn
 zsh
+fish
