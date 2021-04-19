@@ -27,8 +27,8 @@ tasks:
       - mv ~/.config/fish/config.fish ~/.config/fish/config.fish.bak
       - mv ~/.config/fish/fish_plugins ~/.config/fish/fish_plugins.bak 
     status:
-      - test ! -f ~/.config/fish/config.fish
-      - test ! -f ~/.config/fish/fish_plugins
+      - test -f ~/.config/fish/config.fish
+      - test -f ~/.config/fish/fish_plugins
 
   pet:
     cmds:

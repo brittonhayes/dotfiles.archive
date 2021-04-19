@@ -14,9 +14,6 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 fpath=(~/.zsh/completions/ $fpath)
 
-## LINUX SPECIFIC
-# eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
 # USER CONFIG
 export EDITOR="vim"
 export GOPATH=$HOME/go
@@ -34,7 +31,6 @@ fi
 alias vi="vim"
 alias pip="pip3"
 alias python="python3"
-alias vpn="protonvpn-cli"
 alias kubectl="k"
 
 # FUNCTIONS
