@@ -21,8 +21,8 @@ abbr -a gb go build
 abbr -a gst git status
 abbr -a gco git checkout
 abbr -a ga git add
-abbr -a gc git commit
-abbr -a gcam git commit -am
+abbr -a gc git commit -S 
+abbr -a gcam git commit -S -am 
 abbr -a gl git pull
 abbr -a gp git push
 
@@ -43,4 +43,9 @@ function gitinit
     git init -b main
     git add .gitignore
     echo Git Project Initialized
+end
+
+function notebook -d "Start a Jupyter datascience notebook container"
+    echo Starting Jupyter notebook on "http://localhost:10000?token=<token>"
+    docker run --rm -p 10000:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/joyvan jupyter/datascience-notebook
 end

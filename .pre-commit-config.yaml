@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+    - id: gitleaks
+      name: gitleaks
+      description: Detect hard-coded secrets with Gitleaks
+      entry: zricethezav/gitleaks
+      language: docker_image

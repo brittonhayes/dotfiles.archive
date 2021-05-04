@@ -96,6 +96,14 @@ tasks:
       - git config --global core.excludesfile .gitignore-system
       - echo "Global gitignore setup!"
 
+  setup:tmux:
+    desc: "Setup terminal multiplexer"
+    deps: [test:stow]
+    cmds:
+      - stow --target=$HOME/.config/ tmux
+      - tmux source-file ~/.config/.tmux.conf
+      - echo "TMUX setup!"
+        
   setup:vim:
     desc: "Setup vimrc"
     deps: [test:stow, test:vimrc]
