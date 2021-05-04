@@ -1,6 +1,8 @@
 # Initialize starship
 starship init fish | source
 
+source ~/.config/fish/env.fish
+
 # SET VARIABLES
 set -gx EDITOR nvim
 set -gx GOPATH "$HOME/golang"
@@ -39,9 +41,7 @@ function gi
 end
 
 function gitinit
-    curl -sLw n https://www.toptal.com/developers/gitignore/api/osx > .gitignore
     git init -b main
-    git add .gitignore
     echo Git Project Initialized
 end
 

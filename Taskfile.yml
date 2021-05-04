@@ -58,7 +58,7 @@ tasks:
     desc: "Setup Alacritty configuration"
     deps: [test:stow, test:brew]
     cmds:
-      - brew install alacritty
+      # - brew install alacritty
       - task: backup:alacritty
       - stow alacritty
       - echo "Alacritty setup!"
@@ -129,7 +129,6 @@ tasks:
     deps: [test:fish, test:stow]
     cmds:
       - fish ./fish/setup.fish 
-      - task: backup:fish
       - stow --target=$HOME/.config/fish/ fish
       - echo "fish setup done!"
 

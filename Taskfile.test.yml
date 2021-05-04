@@ -8,14 +8,14 @@ tasks:
     cmds:
       - echo "Stow is setup correctly "
     preconditions:
-      - sh: "test -f /usr/local/bin/stow"
+      - sh: "which stow"
         msg: "Please install stow"
 
   brew:
     cmds:
       - echo "Brew is setup correctly "
     preconditions:
-      - sh: "test -f /usr/local/bin/brew"
+      - sh: "which brew"
         msg: "Please install brew"
 
   go:
