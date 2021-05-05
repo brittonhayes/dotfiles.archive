@@ -4,6 +4,7 @@ starship init fish | source
 source ~/.config/fish/env.fish
 
 # SET VARIABLES
+set -x GPG_TTY (tty)
 set -gx EDITOR vim
 set -gx GOPATH "$HOME/golang"
 set -gx GOBIN "$GOPATH/bin"
