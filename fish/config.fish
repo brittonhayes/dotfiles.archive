@@ -4,7 +4,7 @@ starship init fish | source
 source ~/.config/fish/env.fish
 
 # SET VARIABLES
-set -gx EDITOR nvim
+set -gx EDITOR vim
 set -gx GOPATH "$HOME/golang"
 set -gx GOBIN "$GOPATH/bin"
 set -gx GO111MODULE "on"
