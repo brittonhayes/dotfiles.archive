@@ -15,6 +15,7 @@ set -gx GOSUMDB "off"
 # ABBREVIATIONS
 abbr -a k kubectl
 abbr -a tf terraform
+abbr -a tfdoc terraform-docs
 
 ## go
 abbr -a gr go run
@@ -24,8 +25,8 @@ abbr -a gb go build
 abbr -a gst git status
 abbr -a gco git checkout
 abbr -a ga git add
-abbr -a gc git commit -S 
-abbr -a gcam git commit -S -am 
+abbr -a gc git commit 
+abbr -a gcam git commit -am 
 abbr -a gl git pull
 abbr -a gp git push
 
