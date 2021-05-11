@@ -101,7 +101,6 @@ tasks:
     deps: [test:stow]
     cmds:
       - stow --target=$HOME/.config/ tmux
-      - tmux source-file ~/.config/.tmux.conf
       - echo "TMUX setup!"
         
   setup:vim:

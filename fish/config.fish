@@ -51,3 +51,11 @@ function notebook -d "Start a Jupyter datascience notebook container"
     echo Starting Jupyter notebook on "http://localhost:10000?token=<token>"
     docker run --rm -p 10000:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/joyvan jupyter/datascience-notebook
 end
+
+function tmx -d "Start up TMUX"
+    if not set -q TMUX
+        set -g TMUX tmux new-session -d -s base -f ~/dotfiles/tmux/.tmux.conf
+        eval $TMUX            
+        tmux attach-session -d -t base -f ~/dotfiles/tmux/.tmux.conf
+    end 
+end
