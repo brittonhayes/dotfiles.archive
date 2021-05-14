@@ -42,6 +42,10 @@ function gi
     curl -sLw n https://www.toptal.com/developers/gitignore/api/$argv
 end
 
+function wa -w watch
+    watch -c $argv
+end
+
 function gitinit
     git init -b main
     echo Git Project Initialized
