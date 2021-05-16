@@ -2,15 +2,16 @@ format = "[┌─$all](dimmed white) "
 
 [character]
 format = "[└─](dimmed white)$symbol"
-success_symbol = "[\\$](bold blue)"
+success_symbol = "[\\$](bold #98971a)"
 
 [directory]
-style = "bold blue"
+style = "bold #98971a"
 format = "\\([$path]($style)[$read_only]($read_only_style)\\) "
 
 [git_branch]
 format = "[$symbol$branch]($style) "
 symbol = " "
+style = "white"
 
 [gcloud]
 symbol = " "
