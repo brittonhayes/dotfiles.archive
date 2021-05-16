@@ -3,6 +3,9 @@ starship init fish | source
 
 source ~/.config/fish/env.fish
 
+# THEME
+theme_gruvbox dark medium
+
 # SET VARIABLES
 set -x GPG_TTY (tty)
 set -gx EDITOR vim
