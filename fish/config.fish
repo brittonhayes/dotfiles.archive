@@ -14,6 +14,7 @@ set -gx GOBIN "$GOPATH/bin"
 set -gx GO111MODULE "on"
 set -gx PATH "$PATH:$GOPATH/bin:$GOROOT/bin"
 set -gx GOSUMDB "off"
+set -gx PATH $PATH $HOME/.krew/bin
 
 # ABBREVIATIONS
 abbr -a k kubectl
