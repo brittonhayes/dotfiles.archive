@@ -41,6 +41,6 @@ tasks:
 
   alacritty:
     cmds:
-      - mv ~/.alacritty.yml ~/.alacritty.yml.bak
+      - mv ~/.config/alacritty/.alacritty.yml ~/.config/alacritty/.alacritty.yml.bak
     status:
-      - test ! -f ~/.alacritty.yml
+      - test ! -f ~/.config/alacritty/.alacritty.yml
