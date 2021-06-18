@@ -107,16 +107,14 @@ tasks:
     deps: [test:stow, test:vimrc]
     cmds:
       - task: backup:vimrc
-      - task: setup:vim:plug
       - stow --target=$HOME/.config/nvim/ nvim
+      - task: setup:vim:plug
       - stow vim
       - echo "VIM setup done!"
 
   setup:vim:plug:
     cmds:
-      - curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    status:
-      - test -f ~/.local/share/nvim/site/autoload/plug.vim
+      - sh -c 'curl -fLo "$HOME/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
   setup:zsh:
     desc: "Setup zsh"
