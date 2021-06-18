@@ -8,6 +8,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'xuyuanp/nerdtree-git-plugin'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
