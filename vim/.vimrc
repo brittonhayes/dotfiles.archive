@@ -18,8 +18,9 @@
 
 " => Import Customizations
 "
+source ~/.plugins.vim
 source ~/.my_configs.vim
-
+source ~/.coc.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -135,7 +136,7 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme desert
+    colorscheme nord
 catch
 endtry
 

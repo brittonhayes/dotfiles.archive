@@ -107,18 +107,16 @@ tasks:
     deps: [test:stow, test:vimrc]
     cmds:
       - task: backup:vimrc
-      - task: setup:vim:vundle
+      - task: setup:vim:plug
+      - stow --target=$HOME/.config/nvim/ nvim
       - stow vim
-      - stow .vim
       - echo "VIM setup done!"
-      - echo "Open vim and run :BundleInstall to finish installing plugins"
 
-  setup:vim:vundle:
+  setup:vim:plug:
     cmds:
-      - rm -rf ~/.vim/bundle/Vundle.vim
-      - git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+      - curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     status:
-      - test -d ~/.vim/bundle/Vundle.vim
+      - test -f ~/.local/share/nvim/site/autoload/plug.vim
 
   setup:zsh:
     desc: "Setup zsh"

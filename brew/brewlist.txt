@@ -2,6 +2,7 @@ alacritty
 awscli
 docker
 docker-compose
+exa
 fd
 gh
 glow

@@ -17,6 +17,8 @@ set -gx GOSUMDB "off"
 set -gx PATH $PATH $HOME/.krew/bin
 
 # ABBREVIATIONS
+abbr -a v nvim
+abbr -a vi nvim
 abbr -a k kubectl
 abbr -a tf terraform
 abbr -a tfdoc terraform-docs
