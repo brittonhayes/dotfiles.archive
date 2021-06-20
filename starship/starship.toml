@@ -20,3 +20,6 @@ disabled = true
 symbol = " "
 disabled = true
 style = "bold white"
+
+[battery]
+disabled = true
