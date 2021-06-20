@@ -100,18 +100,23 @@ github.com/client9/misspell/cmd/misspell
 github.com/alphasoc/flightsim/...
 ```
 
-### Vim Config
+### Vim/Neovim Config
 
-My go-to VIM setup is basically [amix/vimrc](https://github.com/amix/vimrc) right out of the box. I tweak it here
-and there, but he did a killer job, and I pretty much stick with his setup.
+My vim/neovim setup is basically a recreation of my go-to tools from VSCode stripped back for vim/neovim.
+It sets up autocomplete, a file tree, vim-go, an integrated terminal and a few other goodies.
 
 ```shell
 # Install vim setup
+# 
+# This sets up the vim and neovim configs
+
 task setup:vim
 ```
 
 [My Vimrc](vim/.vimrc)
 [My Vim customizations](vim/.my_configs.vim)
+
+![neovim](https://user-images.githubusercontent.com/46035482/122664030-98253c80-d153-11eb-84eb-8491f6302383.png)
 
 ### Alacritty
 
