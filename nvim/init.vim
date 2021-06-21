@@ -1,5 +1,6 @@
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
+set runtimepath^=~/.vim runtimepath+=~/.vim/after runtimepath+=/usr/local/opt/fzf
 let &packpath=&runtimepath
+
 source ~/.vimrc
 
 " open new split panes to right and below
