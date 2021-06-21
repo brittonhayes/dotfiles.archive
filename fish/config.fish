@@ -1,10 +1,5 @@
-# Initialize starship
-starship init fish | source
-
+# Source env
 source ~/.config/fish/env.fish
-
-# THEME
-# theme_gruvbox dark medium
 
 # SET VARIABLES
 set -x GPG_TTY (tty)
@@ -15,6 +10,10 @@ set -gx GO111MODULE "on"
 set -gx PATH "$PATH:$GOPATH/bin:$GOROOT/bin"
 set -gx GOSUMDB "off"
 set -gx PATH $PATH $HOME/.krew/bin
+set -gx PATH $HOME/.rbenv/bin $PATH
+
+# Initialize starship
+starship init fish | source
 
 # ABBREVIATIONS
 abbr -a v nvim
