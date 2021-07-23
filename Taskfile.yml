@@ -92,7 +92,7 @@ tasks:
     desc: "Setup global gitignore"
     deps: [test:git]
     cmds:
-      - git config --global core.excludesfile .gitignore-system
+      - git config --global core.excludesfile ./git/.gitignore-system
       - echo "Global gitignore setup!"
 
   setup:tmux:
