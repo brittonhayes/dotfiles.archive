@@ -122,7 +122,7 @@ tasks:
     cmds:
       - sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
       - task: backup:zsh
-      - stow zsh
+      - stow --target=$HOME/.config/zsh/ zsh
       - echo "ZSH setup done!"
     preconditions:
       - sh: test ! -d ~/.oh-my-zsh
