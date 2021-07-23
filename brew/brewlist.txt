@@ -28,3 +28,4 @@ vim
 yarn
 zsh
 fish
+hashicorp/tap/terraform-ls
