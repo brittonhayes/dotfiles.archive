@@ -10,7 +10,7 @@ font:
   normal:
     family: "JetBrainsMono Nerd Font"
     style: Regular
-  size: 18.0
+  size: 15.0
 
 alt_send_esc: true
 

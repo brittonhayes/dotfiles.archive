@@ -22,6 +22,7 @@ abbr -a k kubectl
 abbr -a tf terraform
 abbr -a tfdoc terraform-docs
 
+
 ## go
 abbr -a gr go run
 abbr -a gb go build

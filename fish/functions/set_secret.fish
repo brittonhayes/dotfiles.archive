@@ -6,7 +6,7 @@ function set_secret -d "Set an environment variable outside of history"
 
     if set -q _flag_key
         read -l secret_value
-        set -xg (echo $_flag_key) $secret_value
+        set -gx (echo $_flag_key) $secret_value
     else
         echo (set_color red)"!"(set_color normal) "Missing required flag --key" 
     end

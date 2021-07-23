@@ -58,6 +58,7 @@ tasks:
     desc: "Setup Alacritty configuration"
     deps: [test:stow, test:brew]
     cmds:
+      - mkdir ~/.config/alacritty/
       - task: backup:alacritty
       - stow --target=$HOME/.config/alacritty/ alacritty
       - echo "Alacritty setup!"

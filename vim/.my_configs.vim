@@ -6,9 +6,6 @@ filetype off
 
 filetype plugin indent on
 
-
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
@@ -26,7 +23,7 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
-nnoremap <silent> <A-f> :FZF<CR>
+nnoremap <silent> <C-p> :FZF<CR>
 
 if &shell =~# 'fish$'
     set shell=sh
