@@ -42,6 +42,13 @@ tasks:
       - sh: "test ! -d ~/.vim_runtime"
         msg: "Please remove the ~/.vim_runtime directory"
 
+  alacritty:
+    cmds:
+      - echo "Alacritty is setup correctly"
+    preconditions:
+      - sh: "which alacritty"
+        msg: "Please install alacritty on this device"
+
   zsh:
     cmds:
       - echo "zsh is setup correctly "

@@ -1,6 +1,8 @@
 # https://taskfile.dev
 version: "3"
 
+dotenv: ['.env']
+
 includes:
   test: ./Taskfile.test.yml
   backup: ./Taskfile.backup.yml
@@ -11,6 +13,12 @@ tasks:
   default:
     cmds:
       - task -l
+    
+  test:
+    desc: "Test installation in docker"
+    cmds:
+      - docker build --rm . -t dotfiles:latest
+      - docker run -u root -it dotfiles:latest
 
   all:
     desc: "Run all setup commands"
@@ -56,7 +64,7 @@ tasks:
 
   setup:alacritty:
     desc: "Setup Alacritty configuration"
-    deps: [test:stow, test:brew]
+    deps: [test:stow, test:brew, test:alacritty]
     cmds:
       - task: backup:alacritty
       - stow --target=$HOME/.config/alacritty/ alacritty
@@ -101,7 +109,7 @@ tasks:
     cmds:
       - stow --target=$HOME/.config/ tmux
       - echo "TMUX setup!"
-        
+
   setup:vim:
     desc: "Setup vimrc"
     deps: [test:stow, test:vimrc]
@@ -115,6 +123,7 @@ tasks:
   setup:vim:plug:
     cmds:
       - sh -c 'curl -fLo "$HOME/dotfiles/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+      - sh -c 'curl -fLo "$HOME/dotfiles/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
   setup:zsh:
     desc: "Setup zsh"
@@ -126,6 +135,7 @@ tasks:
       - git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
       - git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
       - git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+      - source ~/.config/.zshrc
       - echo "ZSH setup done!"
     preconditions:
       - sh: test ! -d ~/.oh-my-zsh
