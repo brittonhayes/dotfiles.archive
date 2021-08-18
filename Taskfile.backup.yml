@@ -2,13 +2,6 @@
 version: "3"
 
 tasks:
-  vimrc:
-    cmds:
-      - mv ~/.vimrc.local ~/.vimrc.local.bak
-      - echo "Created vimrc backup in ~/.vimrc.local.bak"
-    status:
-      - test ! -f ~/.vimrc.local
-
   starship:
     cmds:
       - mv ~/.config/starship.toml ~/.config/starship.toml.bak

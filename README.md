@@ -33,7 +33,7 @@ git clone https://github.com/brittonhayes/dotfiles.git ~/dotfiles
 * setup:pet:            Setup Pet CLI snippets manager
 * setup:starship:       Setup Starship prompt
 * setup:tldr:           Setup tldr
-* setup:vim:            Setup vimrc
+* setup:nvim:           Setup neovim
 * setup:zsh:            Setup zsh
 * setup:fish:           Setup fish
 ```
@@ -73,8 +73,7 @@ task setup:fish
 ```
 
 > To set fish as your default shell, use:
-> `echo /usr/local/bin/fish | sudo tee -a /etc/shells`
-> `chsh -s /usr/local/bin/fish`
+> `echo /usr/local/bin/fish | sudo tee -a /etc/shells` > `chsh -s /usr/local/bin/fish`
 
 ### Go 🐹
 
@@ -100,21 +99,18 @@ github.com/client9/misspell/cmd/misspell
 github.com/alphasoc/flightsim/...
 ```
 
-### Vim/Neovim Config
+### Neovim Config
 
-My vim/neovim setup is basically a recreation of my go-to tools from VSCode stripped back for vim/neovim.
+My neovim setup is basically a recreation of my go-to tools from VSCode stripped back for vim/neovim.
 It sets up autocomplete, a file tree, vim-go, an integrated terminal and a few other goodies.
 
 ```shell
-# Install vim setup
-# 
-# This sets up the vim and neovim configs
+# Install nvim setup
+#
+# This sets up the neovim configs
 
-task setup:vim
+task setup:nvim
 ```
-
-[My Vimrc](vim/.vimrc)
-[My Vim customizations](vim/.my_configs.vim)
 
 ![neovim](https://user-images.githubusercontent.com/46035482/122664030-98253c80-d153-11eb-84eb-8491f6302383.png)
 

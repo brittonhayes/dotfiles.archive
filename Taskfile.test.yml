@@ -32,15 +32,13 @@ tasks:
       - sh: "git version"
         msg: "Please install git"
 
-  vimrc:
+  nvim:
     cmds:
-      - mkdir ~/.config/nvim
-      - echo "vimrc is setup correctly "
+      - mkdir -p ~/.config/nvim
+      - echo "nvim is setup correctly "
     preconditions:
-      - sh: "which vim"
-        msg: "Please install vim on this device"
-      - sh: "test ! -d ~/.vim_runtime"
-        msg: "Please remove the ~/.vim_runtime directory"
+      - sh: "which nvim"
+        msg: "Please install nvim on this device"
 
   alacritty:
     cmds:
