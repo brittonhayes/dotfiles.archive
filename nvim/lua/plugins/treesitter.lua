@@ -4,9 +4,14 @@ if not present then
 end
 
 ts_config.setup {
-   ensure_installed = {
+  ensure_installed = {
       "bash",
       "lua",
+      "hcl",
+      "go",
+      "toml",
+      "yaml",
+      "rust"
    },
    highlight = {
       enable = true,
