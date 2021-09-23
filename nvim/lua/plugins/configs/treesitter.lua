@@ -6,13 +6,16 @@ end
 ts_config.setup {
    ensure_installed = {
       "lua",
-       "bash",
-       "lua",
-       "hcl",
-       "go",
-       "toml",
-       "yaml",
-       "rust"
+      "bash",
+      "lua",
+      "hcl",
+      "go",
+      "toml",
+      "yaml",
+      "rust",
+      "dockerfile",
+      "gomod",
+      "json"
    },
    highlight = {
       enable = true,

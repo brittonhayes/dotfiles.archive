@@ -5,10 +5,10 @@ M.ui, M.options, M.plugin_status, M.mappings, M.custom = {}, {}, {}, {}, {}
 
 -- non plugin ui configs, available without any plugins
 M.ui = {
-   italic_comments = false,
+   italic_comments = true,
 
    -- theme to be used, to see all available themes, open the theme switcher by <leader> + th
-   theme = "onedark",
+   theme = "aquarium",
 
    -- theme toggler, toggle between two themes, see theme_toggleer mappings
    theme_toggler = {
@@ -55,7 +55,7 @@ M.options = {
    permanent_undo = true,
    shiftwidth = 2,
    smartindent = true,
-   tabstop = 8, -- Number of spaces that a <Tab> in the file counts for
+   tabstop = 4, -- Number of spaces that a <Tab> in the file counts for
    timeoutlen = 400,
    relativenumber = false,
    ruler = false,
@@ -80,7 +80,7 @@ M.plugin_status = {
    cheatsheet = true, -- fuzzy search your commands/keymappings
    colorizer = true,
    comment = true, -- universal commentor
-   dashboard = false, -- a nice looking dashboard
+   dashboard = true, -- a nice looking dashboard
    esc_insertmode = true, -- escape from insert mode using custom keys
    feline = true, -- statusline
    gitsigns = true, -- gitsigns in statusline
@@ -89,7 +89,7 @@ M.plugin_status = {
    neoscroll = true, -- smooth scroll
    telescope_media = false, -- see media files in telescope picker
    truezen = false, -- no distraction mode for nvim
-   vim_fugitive = false, -- git in nvim
+   vim_fugitive = true, -- git in nvim
    vim_matchup = true, -- % magic, match it but improved
 }
 
@@ -215,10 +215,24 @@ M.custom.mappings = {
 }
 
 M.plugins = {
-   lspconfig = {
-      -- servers = {"html", "cssls"}
-      servers = {},
-   },
+  lspconfig = {
+    servers = {"gopls"},
+    setup_configs = {
+      gopls = {
+         settings = {
+            gopls = {
+               hoverKind = 'Structured',
+               gofumpt = true,
+               analyses = {
+                  unusedparams = true,
+                  shadow = true,
+               },
+               staticcheck = true,
+            },
+         },
+      },
+    },
+  },
 }
 
 return M

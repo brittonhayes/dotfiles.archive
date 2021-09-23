@@ -56,17 +56,32 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
    },
 }
 
-local servers = require("core.utils").load_config().plugins.lspconfig.servers
+local plugins = require("core.utils").load_config().plugins
+local configs = require 'lspconfig/configs'
+
+for _, extra_config in pairs(plugins.extra_configs) do
+   extra_config(nvim_lsp, configs)
+end
+
+local servers = plugins.lspconfig.servers
+local setup_configs = plugins.lspconfig.setup_configs
 
 for _, lsp in ipairs(servers) do
-   nvim_lsp[lsp].setup {
+   cfg = {
       on_attach = on_attach,
       capabilities = capabilities,
       -- root_dir = vim.loop.cwd,
       flags = {
          debounce_text_changes = 150,
       },
+      settings = lsp_settings
    }
+
+   if setup_configs[lsp] ~= nil then
+      for k, v in pairs(setup_configs[lsp]) do cfg[k] = v end
+   end
+
+   nvim_lsp[lsp].setup(cfg)
 end
 
 -- require("anyfile").setup_luaLsp(on_attach, capabilities) -- this will be removed soon after the custom hooks PR
